@@ -1,0 +1,17 @@
+{
+  "name": "run_tracking_web_application",
+  "version": "1.0.0",
+  "description": "This is being used to create the webserver of a webapplication that tracks and mantains users running data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "track",
+    "run",
+    "database",
+    "items"
+  ],
+  "author": "Ashray Kumar",
+  "license": "ISC"
+}
