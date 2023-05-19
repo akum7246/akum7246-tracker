@@ -14,10 +14,20 @@
     that this form can be selected from the webpage -->
   <form id="taskform">
     <!-- used class instead of id for div tag because there are multiple form row divs -->
-<div class="form-row">
-  <label for="taskName">Run Title</label>
-  <input type="text" name="taskName" id="taskName" required="true"/>
-</div>
+    <div class="form-row">
+      <label for="runName">Run Title</label>
+      <input type="text" name="runName" id="runName" required="true"/>
+    </div>
+    <label for="runDate">Date of Run</label>
+      <input type="text" name="runDate" id="runDate" required="true"/>
+    </div>
+    <label for="runTime">Time of The Day</label>
+      <input type="text" name="runTime" id="runTime" required="true"/>
+    </div>
+    <div class="form-row">
+      <label for="runDescription">Run Description</label>
+      <input type="text" name="runDescription" id="runDescription" required="true"/>
+    </div>
   </form>
   <script src="script.js"></script>
   </script>
