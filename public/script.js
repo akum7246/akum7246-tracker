@@ -2,8 +2,11 @@ const form=document.getElementById('taskform')
 const tasklist=document.querySelector('#tasklist')
 
 form.addEventListener('submit', function(event){
+    // blocks default submission behavior
+    event.preventDefault();
     console.log(event)
 })
+
 
 
 
