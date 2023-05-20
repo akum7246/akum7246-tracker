@@ -5,7 +5,19 @@ form.addEventListener('submit', function(event){
     // blocks default submission behavior
     event.preventDefault();
     console.log(form.elements.runName.value)
-    
+    addTask(
+        form.elements.runName.value, 
+        form.elements.runDate.value,
+        form.elements.runTime.value,
+        form.elements.runDescription.value,
+        form.elements.runType.value,
+        form.elements.terrainType.value,
+        form.elements.percExertion.value,
+        form.elements.runDistance.value,
+        form.element.runTime.value
+        )
+        console.log(taskList)
+
 })
 
 
