@@ -8,13 +8,13 @@ form.addEventListener('submit', function(event){
     addTask(
         form.elements.runName.value, 
         form.elements.runDate.value,
-        form.elements.runTime.value,
+        form.elements.timeOfDay.value,
         form.elements.runDescription.value,
         form.elements.runType.value,
         form.elements.terrainType.value,
         form.elements.percExertion.value,
         form.elements.runDistance.value,
-        form.element.runTime.value
+        form.element.runDuration.value
         )
         console.log(taskList)
 
