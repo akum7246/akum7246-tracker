@@ -19,8 +19,11 @@
       <input type="text" name="runName" id="runName" required="true"/>
     </div>
     <label for="runDate">Date of Run</label>
+    <!-- max value code snippet adjusted so that present day date
+      is the highest value that can be chosen  -->
+    <!-- code implemented from : "https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today -->
     <input type="date" id="runDate" name="runDate"
-    min="2018-01-01" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]"
+     min="2018-01-01" max="3000-01-01" onfocus="this.max=new Date().toISOString().split('T')[0]"
     required="true"/>
     </div>
     <label for="runTime">Time of The Day</label>
