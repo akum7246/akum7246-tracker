@@ -1,3 +1,29 @@
+const form=document.getElementById('taskform')
+const tasklist=document.querySelector('#tasklist')
+
+form.addEventListener('submit', function(event){
+    console.log(event)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // let task = {
 
 //     name :"Park Run",
@@ -37,5 +63,6 @@ let task = {
     distanceMetric,
     image:"longDistance.jpg",
 }
+taskList.push(task)
 }
 
