@@ -4,7 +4,7 @@ const tasklist=document.querySelector('#tasklist')
 form.addEventListener('submit', function(event){
     // blocks default submission behavior
     event.preventDefault();
-    console.log(form.elements.runName)
+    console.log(form.elements.runName.value)
     
 })
 
