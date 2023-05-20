@@ -14,7 +14,7 @@ form.addEventListener('submit', function(event){
         form.elements.terrainType.value,
         form.elements.percExertion.value,
         form.elements.runDistance.value,
-        form.element.runDuration.value,
+        form.elements.runDuration.value,
         )
         console.log(taskList)
 
