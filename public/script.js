@@ -15,6 +15,8 @@ form.addEventListener('submit', function(event){
         form.elements.percExertion.value,
         form.elements.runDistance.value,
         form.elements.runDuration.value,
+        form.elements.runMinutes.value,
+        form.elements.runHours.value,
         )
         
 
@@ -88,22 +90,24 @@ console.log(taskList);
 
 var taskList=[];
 // created function called taskList that has all the inputparameters to create task object
-function addTask(name, category, dateOfRun, 
-duration, distance, exertion, terrain,
-timeOfDay, description, distanceMetric){
+function addTask(name, dateOfRun, timeOfDay, 
+description, category, terrain, exertion, distance, duration, hours, minutes, 
+  distanceMetric){
 let task = {
     name,
-    category,
-    // used this id property to create unique id everytime
-    id : Date.now(),
     dateOfRun:new Date ().toISOString(),
-    duration,
-    distance,
-    pace:7,
-    exertion,
-    terrain,
     timeOfDay,
     description,
+    category,
+    terrain,
+    exertion,
+    distance,
+    duration,
+    hours,
+    minutes,
+    // used this id property to create unique id everytime
+    id : Date.now(),
+    pace:7,
     distanceMetric,
     image:"longDistance.jpg",
 }
@@ -111,6 +115,6 @@ taskList.push(task);
 displayRun(task)
 }
 
-addTask("Park run", "21/5/23", "morning", "Pleasant run", "Endurance", "Road", "difficult", 10, 1);
+addTask("Park run", "21/5/23", "morning", "It was a Pleasant run", "Endurance", "Road", "difficult", 10, 1, 2, 30);
 
 console.log(taskList);

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+ 
 <html>
 
 <head>
@@ -12,9 +13,9 @@
   <header><h1>Run Tracker</h1></header>
   <!--  added unique id to form to ensure 
     that this form can be selected from the webpage -->
+  
   <form id="taskform">
-    <!-- used class instead of id for div tag because there are multiple form row divs that have same 
-    css styling -->
+    <!-- used class instead of id for div tag because there are multiple form row divs -->
     <div class="form-row">
       <label for="runName">Run Title</label>
       <input type="text" name="runName" id="runName" required="true"/>
@@ -31,34 +32,44 @@
       <input type="text" name="timeOfDay" id="timeOfDay" required="true"/>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" >
       <label for="runDescription">Run Description</label>
       <input type="text" name="runDescription" id="runDescription" required="true"/>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" >
       <label for="runType">Type of Run</label>
       <input type="text" name="runType" id="runType" required="true"/>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" >
       <label for="terrainType">Type of Terrain</label>
       <input type="text" name="terrainType" id="terrainType" required="true"/>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" >
       <label for="percExertion">Perceived Exertion</label>
       <input type="text" name="percExertion" id="percExertion" required="true"/>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" >
       <label for="runDistance">Distance</label>
       <input type="number" name="runDistance" id="runDistance" required="true"/>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" >
       <label for="runDuration">Duration</label>
       <input type="number" name="runDuration" id="runDuration" required="true"/>
+    </div>
+    
+    <p>Duration</p>
+    <div class="form-row">
+        
+         <label for ="runHours">Hours</label>
+         <input type="number" name="runHours" id="runHours" required="true"/> : 
+         
+         <input type="number" name="runMinutes" id="runMinutes" required="true" /> 
+         <label for ="runMinutes">Minutes</label>
     </div>
 
     <div class="form-row"><input type="submit"/>
