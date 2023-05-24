@@ -94,6 +94,7 @@ var taskList=[];
 function addTask(name, dateOfRun, timeOfDay, 
 description, category, terrain, exertion, distance, duration, hours, minutes, 
   distanceMetric){
+      let totalPace = calPace (hours, minutes, distance);
 let task = {
     name,
     dateOfRun:new Date ().toISOString(),
@@ -110,15 +111,13 @@ let task = {
     id : Date.now(),
     distanceMetric,
     image:"longDistance.jpg",
-    pace,
+    pace: totalPace,
 }
-let totalPace = calPace (task.hours, task.minutes, task.distance);
-task.pace = totalPace
 taskList.push(task);
 displayRun(task)
 }
 
 addTask("Park run", "21/5/23", "morning", "It was a Pleasant run", "Endurance", "Road", "difficult", 10, 1, 2, 30);
-addTask("Park", "21/5/23", "morning", "It was a Pleasant run", "Endurance", "Road", "difficult", 10, 1, 2, 30);
+addTask("Park", "21/5/23", "morning", "It was a Pleasant run", "Endurance", "Road", "difficult", 10, 1, 3, 30);
 
 console.log(taskList);
