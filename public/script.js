@@ -4,7 +4,7 @@ const tasklistElem=document.querySelector('#tasklist')
 form.addEventListener('submit', function(event){
     // blocks default submission behavior
     event.preventDefault();
-    
+   
     addTask(
         form.elements.runName.value, 
         form.elements.runDate.value,
@@ -63,13 +63,6 @@ console.log(taskList);
 
 
 
-
-
-
-
-
-
-
 // let task = {
 
 //     name :"Park Run",
@@ -87,6 +80,14 @@ console.log(taskList);
 //     distanceMetric:"Kilometers",
 //     image:"longDistance.jpg",
 // }
+
+function calPace(hours, minutes, distance){
+    let totalMin = ((hours * 60) + minutes);
+    let pace = totalMin/distance;
+    return `${pace} min/km`
+}
+
+
 
 var taskList=[];
 // created function called taskList that has all the inputparameters to create task object
@@ -107,14 +108,17 @@ let task = {
     minutes,
     // used this id property to create unique id everytime
     id : Date.now(),
-    pace:7,
     distanceMetric,
     image:"longDistance.jpg",
+    pace,
 }
+let totalPace = calPace (task.hours, task.minutes, task.distance);
+task.pace = totalPace
 taskList.push(task);
 displayRun(task)
 }
 
 addTask("Park run", "21/5/23", "morning", "It was a Pleasant run", "Endurance", "Road", "difficult", 10, 1, 2, 30);
+addTask("Park", "21/5/23", "morning", "It was a Pleasant run", "Endurance", "Road", "difficult", 10, 1, 2, 30);
 
 console.log(taskList);
