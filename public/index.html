@@ -9,13 +9,29 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
+
+
 <body>
-  <header><h1>Run Tracker</h1></header>
+  <header><h2>Welcome to RunMate</h2></header>
+  <div>
+  <p>Welcome to RunMate. Our app is designed to help you track your progress, and stay
+motivated along the way. Whether you're a beginner just starting out or an experienced
+runner looking to improve your performance, our app has everything you need to succeed.</p>
+  </div>
+  
+  <input onclick="change()" type="button" value="Add New Run" id="btn"></input>
+  
+  
+  
   <!--  added unique id to form to ensure 
     that this form can be selected from the webpage -->
   
   <form id="taskform">
     <!-- used class instead of id for div tag because there are multiple form row divs -->
+    <fieldset>
+        
+        <legend>Primary Run Information</legend>
+        
     <div class="form-row">
       <label for="runName">Run Title</label>
       <input type="text" name="runName" id="runName" required="true"/>
@@ -29,51 +45,88 @@
     required="true"/>
     
     <label for="timeOfDay">Time of The Day</label>
-      <input type="text" name="timeOfDay" id="timeOfDay" required="true"/>
+    <!-- <input type="text" name="timeOfDay" id="timeOfDay" required="true"/> -->
+      <select type="text" name="timeOfDay" id="timeOfDay" required="true">
+          <option value"">Select a Time of Day</option>
+          <option value="Morning">Morning</option>
+          <option value="Afternoon">Afternoon</option>
+          <option value="Evening">Evening</option>
+          <option value="Night">Night</option>
+      </select>
+          
     </div>
 
     <div class="form-row" >
       <label for="runDescription">Run Description</label>
       <input type="text" name="runDescription" id="runDescription" required="true"/>
     </div>
+    </fieldset>
 
+     <fieldset>
+         
+         <legend>Running Style</legend>
+         
     <div class="form-row" >
       <label for="runType">Type of Run</label>
-      <input type="text" name="runType" id="runType" required="true"/>
+      <!-- <input type="text" name="runType" id="runType" required="true"/> -->
+      <select type="text" name="runType" id="runType" required="true">
+          <option value"">Select Type Of Run</option>
+          <option value="Long Distance">Long Distance</option>
+          <option value="Interval Runs">Interval Runs</option>
+          <option value="Tempo Runs">Tempo Runs</option>
+          <option value="Sprints">Sprints</option>
+      </select>
+      
     </div>
-
+<p><strong>Type of Terrain</strong></p>
     <div class="form-row" >
-      <label for="terrainType">Type of Terrain</label>
-      <input type="text" name="terrainType" id="terrainType" required="true"/>
+      <label for="terrainType">Road</label>
+      <!-- <input type="text" name="terrainType" id="terrainType" required="true"/> -->
+      <input type="radio" name="terrainType" id="terrainType" required="true" value="Road"/>
+      
+      <label for="terrainType">Trail</label>
+      <!-- <input type="text" name="terrainType" id="terrainType" required="true"/> -->
+      <input type="radio" name="terrainType" id="terrainType" required="true" value="Trail"/>
+      
+      <label for="terrainType">Treadmill</label>
+      <!-- <input type="text" name="terrainType" id="terrainType" required="true"/> -->
+      <input type="radio" name="terrainType" id="terrainType" required="true" value="Treadmill"/>
     </div>
 
     <div class="form-row" >
       <label for="percExertion">Perceived Exertion</label>
       <input type="text" name="percExertion" id="percExertion" required="true"/>
     </div>
+     </fieldset>
 
+     <fieldset>
+         
+         <legend>Distance and Time</legend>
+         
     <div class="form-row" >
       <label for="runDistance">Distance</label>
-      <input type="number" name="runDistance" id="runDistance" required="true"/>
+      <input type="number" name="runDistance" id="runDistance" required="true" min="0">
     </div>
 
-    <div class="form-row" >
+    <!-- removed this input field as the the duration field required 2 seperate fields for 
+hours and minutes which I initially did not consider -->
+    <!-- <div class="form-row" >
       <label for="runDuration">Duration</label>
       <input type="number" name="runDuration" id="runDuration" required="true"/>
-    </div>
+    </div> -->
     
     <p>Duration</p>
     <div class="form-row">
         
          <label for ="runHours">Hours</label>
-         <input type="number" name="runHours" id="runHours" required="true"/> : 
+         <input type="number" name="runHours" id="runHours" required="true" min="0"/> : 
          
-         <input type="number" name="runMinutes" id="runMinutes" required="true" /> 
+         <input type="number" name="runMinutes" id="runMinutes" required="true" min="0" max="59" /> 
          <label for ="runMinutes">Minutes</label>
     </div>
-
+     </fieldset>
+     
     <div class="form-row"><input type="submit"/>
-
     </div>
   </form>
   <h2>Your Runs</h2>
