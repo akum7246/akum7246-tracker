@@ -86,6 +86,8 @@ function calPace(hours, minutes, distance){
     return `${avgPace} min/km`
 }
 
+// added event listener with if else statement for activity on click to display form 
+// when clicked and reset form when clicked again
 const btn = document.getElementById('btn');
 
 btn.addEventListener('click', () => {
@@ -97,10 +99,14 @@ btn.addEventListener('click', () => {
   } else {
     // 👇️ this HIDES the form
     form.style.display = 'block';
+
+    // form reset applied to discard user input when user clicks discard activity
+    document.getElementById("taskform").reset();
   }
 });
 
-function change() // no ';' here
+// function to change button states on clicks
+function change()
 {
     var elem = document.getElementById("btn");
     if (elem.value=="Add New Run") elem.value = "Discard Activity";
