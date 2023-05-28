@@ -86,6 +86,7 @@ function calPace(hours, minutes, distance){
     return `${avgPace} min/km`
 }
 
+
 // added event listener with if else statement for activity on click to display form 
 // when clicked and reset form when clicked again
 const btn = document.getElementById('btn');
@@ -105,13 +106,31 @@ btn.addEventListener('click', () => {
   }
 });
 
+document.forms['taskform'].addEventListener('submit', function (event) {
+    var elem = document.getElementById("btn");
+            // Do something with the form's data here
+            this.style['display'] = 'none';
+            event.preventDefault();
+            elem.value="Add New Activity";
+            
+            // added if/else statement that connects to submit button so that
+            // the "discard activity" switches to "add activity" button when form is submitted
+             if (elem.value=="Add New Run") elem.value = "Discard Activity";
+    else elem.value = "Add New Run";
+        });
+
+
+
+
 // function to change button states on clicks
-function change()
+function change(btn)
 {
     var elem = document.getElementById("btn");
     if (elem.value=="Add New Run") elem.value = "Discard Activity";
     else elem.value = "Add New Run";
 }
+
+
 
 
 var taskList=[];
@@ -149,4 +168,4 @@ displayRun(task)
 addTask("Park run", "21/5/23", "morning", "It was a Pleasant run", "Endurance", "Road", "difficult", 10, 2, 30);
 
 
-console.log(taskList);
+console.log(taskList);// javascript
