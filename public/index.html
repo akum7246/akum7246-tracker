@@ -95,7 +95,8 @@ runner looking to improve your performance, our app has everything you need to s
 
     <div class="form-row" >
       <label for="percExertion">Perceived Exertion</label>
-      <input type="text" name="percExertion" id="percExertion" required="true"/>
+      <input type="range" name="percExertion" id="myRange" value="2" class="slider" required="true" min="0" max="5"/>
+      <p>Difficulty Level: <span id='length'></span></p>
     </div>
      </fieldset>
 
@@ -106,6 +107,7 @@ runner looking to improve your performance, our app has everything you need to s
     <div class="form-row" >
       <label for="runDistance">Distance</label>
       <input type="number" name="runDistance" id="runDistance" required="true" min="0">
+      <span>Km</span>
     </div>
 
     <!-- removed this input field as the the duration field required 2 seperate fields for 

@@ -1,6 +1,7 @@
 const form=document.getElementById('taskform')
 const tasklistElem=document.querySelector('#tasklist')
 
+
 form.addEventListener('submit', function(event){
     // blocks default submission behavior
     event.preventDefault();
@@ -50,8 +51,6 @@ taskList.forEach(function(taskArrayElement, taskArrayIndex){
 console.log(taskList);
 })
 }
-
-
 
 
 
@@ -132,6 +131,15 @@ function change(btn)
 
 
 
+document.addEventListener("DOMContentLoaded", function() {
+  var slider = document.getElementById('myRange');
+  var output = document.getElementById('length');
+  output.innerHTML = slider.value;
+
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  }
+})
 
 var taskList=[];
 // created function called taskList that has all the inputparameters to create task object
@@ -157,7 +165,7 @@ let task = {
     
     // used this id property to create unique id everytime
     id : Date.now(),
-    distanceMetric,
+    // distanceMetric,
     image:"longDistance.jpg",
     avgPace: totalPace,
 }
@@ -165,7 +173,9 @@ taskList.push(task);
 displayRun(task)
 }
 
+
 addTask("Park run", "21/5/23", "morning", "It was a Pleasant run", "Endurance", "Road", "difficult", 10, 2, 30);
 
 
 console.log(taskList);// javascript
+
