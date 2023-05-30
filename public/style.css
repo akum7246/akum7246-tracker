@@ -32,15 +32,25 @@ form {
   flex-grow: 1;
 }
 
-.bgNav{
+.bg{
  
-  height: 24px;
+  height: 240px;
   width: 100%;
   background: #F18805;
 }
 
 .image1{
-    margin-top:30px;
-    margin-left:5px;
-    width:140px;
-  }
+  margin-top:30px;
+  margin-left:5px;
+  width:140px;
+}
+  
+  td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

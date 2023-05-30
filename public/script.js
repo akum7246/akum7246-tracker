@@ -28,7 +28,15 @@ function displayRun(task){
     // created new element and CHANGE HTML CONTENT
   let item=document.createElement('li');
   item.setAttribute('data-id', task.id);
-  item.innerHTML=`<p><strong> ${task.name}</strong> </p> <br> ${task.dateOfRun} <br> ${task.avgPace}` ; 
+  item.innerHTML=`<table><tr> 
+    <th>Run Title</th>
+    <th>Date of Run</th>
+    <th>Your Average Pace</th>
+    <th>Run Terrain</th>
+    <th>Run Duration</th>
+  </tr> <tr><td><strong> ${task.name}</strong></td>   <td>${task.dateOfRun}</td>
+   <td> ${task.avgPace}</td>  <td>Terrain:${task.terrain}</td>  <td>${task.hours} Hours
+    ${task.minutes} Minutes</td> </tr> </table>` ; 
 
 //   appended list item to webpage so that it is displayed
 tasklistElem.appendChild(item)
@@ -36,7 +44,7 @@ form.reset();
 
 // implemented code within function to generate a delete button for each item added
 let delButton=document.createElement('button');
-let delButtonText=document.createTextNode('Delete');
+let delButtonText=document.createTextNode("🗑️");
 delButton.appendChild(delButtonText);
 item.appendChild(delButton);
 
@@ -147,6 +155,7 @@ function addTask(name, dateOfRun, timeOfDay,
 description, category, terrain, exertion, distance, hours, minutes, 
   distanceMetric){
       let totalPace = calPace (hours,minutes, distance);
+      
       
 let task = {
     name,
