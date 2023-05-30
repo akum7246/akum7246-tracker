@@ -31,3 +31,16 @@ form {
   padding: .5em;
   flex-grow: 1;
 }
+
+.bgNav{
+ 
+  height: 24px;
+  width: 100%;
+  background: #F18805;
+}
+
+.image1{
+    margin-top:30px;
+    margin-left:5px;
+    width:140px;
+  }
