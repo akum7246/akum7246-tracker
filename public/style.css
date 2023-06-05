@@ -1,28 +1,203 @@
-html {
-  height: 100%;
-  width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+/* imports the Poppins font from Google Fonts, which will be used as the font family for the entire page. */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+} 
+
+legend{
+      font-size: 20px;
+       padding: .3em;
+  flex-grow: 1;
+  }
+#dayTime{
+   text-align: right;
+   padding-right: 10px;
 }
-                
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+#runType{
+    padding: .5em;
+  flex-grow: 1;
+}
+#duration{
+    padding: .5em;
+     width: 100px;
+     font-size: 18px;
+     font-weight: bold;
+     
+}
+.form-row2 {
+  
+  
+  
+  padding: .5em;
+  line-height: 1.7;
+  display: grid;
+  grid-template-columns: 0.8em auto;
+  gap: 0.5em;
+}
+
+#runHours{
+     padding: 0.5em;
+      width: 135px;
+  flex-grow: 0;
+}
+
+#runMinutes{
+     padding: 0.5em;
+      width: 135px;
+  flex-grow: 0;
+}
+#hrs{
+   text-align: right;
+   padding-right: 10px; 
+   line-height: 30px;
+   font-size: 17px;
+   
+}
+
+#mins{
+   text-align: left;
+   padding-left: 10px; 
+   line-height: 30px;
+   font-size:17px;
+}
+
+
+#submit{
+   height: 100%;
+   width: 100%;
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   background: #3944bc;
+ }
+ #submit:hover{
+  /* transform: scale(0.99); */
+  background: #1e65c8;
+  }
+  
+  textarea{
+      height:150px;
+      padding: .5em;
+  flex-grow: 1;
+  
+  }
+  #runDistance{
+      
+      padding: .5em;
+      width: 15px;
+  flex-grow: 1;
+  }
+  
+  
+  #runDate{
+      padding: 0.5em;
+      width: 135px;
+  flex-grow: 0;
+  }
+  
+ header > h2 {
+     padding-top: 1.5em;
+     padding-left: 1em;
+ }
+ 
+ h2 {
+     padding-top: 1.5em;
+     padding-left: 1em;
+ }
+  
+  #intro{
+    padding-top: 0.5em;
+     padding-left: 1.7em;  
+  }
+  
+  
 header > h1 {
   text-align: center;
 }
 
+#btn {
+ background-color: #3944bc;
+  border-radius: 12px;
+  color: 	#FFFFFF;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  line-height: 10px;
+  transition: 200ms;
+   height: 30px;
+  width: 150px;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  display: inline-block;
+  margin-left: 1.6em;
+}
+
+
+
+#btn:not(:disabled):hover,
+.button-32:not(:disabled):focus {
+  outline: 0;
+  background: #1e65c8;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+}
+
+#btn:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  -webkit-filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
+}
+
+
+
+.km {
+   width: 100px; 
+   padding-left: 1em;
+   font-size: 17px;
+}
+#difficultyLevel{
+    font-size: 12px;
+    font-style: str;
+    font-weight: bold;
+    
+}
 form {
   max-width: 500px;
-  margin: 0 auto;
-  border: 2px solid grey;
-  padding: 2em 1em;
+  
+  padding-left: 1em;
+  padding-top: 1em;
   
   display: none;
+
 }
-                
+  fieldset {
+    border: 0;
+}
+       
 .form-row {
   display: flex;
   justify-content: flex-end;
   padding: .5em;
 }
-                
+
+
+             
 .form-row > label {
   width: 100px;
 }
@@ -30,7 +205,16 @@ form {
 .form-row > input {
   padding: .5em;
   flex-grow: 1;
-}
+  }
+ .form-row > input:focus { 
+      font-size: 13px;
+      border: 2px solid blue;
+      
+      
+    }
+    
+    
+    
 
 .bgNav{
   background-color:#FFF8E8;
@@ -41,7 +225,10 @@ form {
 }
 
 
-
+#terrain{
+      padding: .5em;
+  flex-grow: 1;
+}
 
 
 .image1{
@@ -54,7 +241,11 @@ form {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  
 }
+table {
+    margin-left:1.5em;
+    }
 
 tr:nth-child(even) {
   background-color: #dddddd;
@@ -66,11 +257,14 @@ tr:nth-child(even) {
   background: none;
   border: 1px solid lighten(gray, 24%);
   height: 48px;
-  padding: 0 24px 0 16px;
+  padding: 200px 24px 0 16px;
   letter-spacing: .25px;
   border-radius: 24px;
   cursor: pointer;
   
-  &:focus {
+}
+  
+  :focus {
     outline: none;
   }
+  
