@@ -1,11 +1,11 @@
 const form=document.getElementById('taskform')
 const tasklistElem=document.querySelector('#tasklist')
 
-
+// Event listener for form submission
 form.addEventListener('submit', function(event){
     // blocks default submission behavior
     event.preventDefault();
-   
+   // Extract form input values and pass them to addTask function
     addTask(
         form.elements.runName.value, 
         form.elements.runDate.value,
@@ -23,6 +23,8 @@ form.addEventListener('submit', function(event){
 })
 // added task object as input parameter for function as it has all the
 //  associated values entered in the form
+
+// Create a new list item with task details and append it to the tasklistElem
 function displayRun(task){
 
     // created new element and CHANGE HTML CONTENT
@@ -35,20 +37,23 @@ function displayRun(task){
     <th>Run Terrain</th>
     <th>Run Duration</th>
   </tr> <tr><td><strong> ${task.name}</strong></td>   <td>${task.dateOfRun}</td>
-   <td> ${task.avgPace}</td>  <td>Terrain:${task.terrain}</td>  <td>${task.hours} Hours
-    ${task.minutes} Minutes</td> </tr> </table>` ; 
+   <td> ${task.avgPace}</td>  <td>${task.terrain}</td>  <td>${task.hours} Hours
+    ${task.minutes} Minutes</td>  </tr>  </table>` ; 
 
 //   appended list item to webpage so that it is displayed
 tasklistElem.appendChild(item)
 form.reset();
 
-// implemented code within function to generate a delete button for each item added
+ 
+// implemented code within function to generate a delete button for each item added and append it to the item
 let delButton=document.createElement('button');
 let delButtonText=document.createTextNode("🗑️");
+ 
 delButton.appendChild(delButtonText);
 item.appendChild(delButton);
 
-// added click event listener inside function to add clickability to button
+
+// added click event listener inside function to add clickability to button and to remove the item from the taskList
 delButton.addEventListener('click', function(event){
 item.remove();
 taskList.forEach(function(taskArrayElement, taskArrayIndex){
@@ -87,6 +92,7 @@ console.log(taskList);
 //     image:"longDistance.jpg",
 // }
 
+// Function to calculate average pace
 function calPace(hours, minutes, distance){
     let totalMin = (+hours*60) + (+minutes);
     let avgPace = totalMin/distance;
@@ -113,6 +119,7 @@ btn.addEventListener('click', () => {
   }
 });
 
+// Event listener for form submission to toggle button text
 document.forms['taskform'].addEventListener('submit', function (event) {
     var elem = document.getElementById("btn");
             // Do something with the form's data here
@@ -129,16 +136,34 @@ document.forms['taskform'].addEventListener('submit', function (event) {
 
 
 
+
 // function to change button states on clicks
 function change(btn)
 {
     var elem = document.getElementById("btn");
     if (elem.value=="Add New Run") elem.value = "Discard Activity";
     else elem.value = "Add New Run";
+    
+   
 }
 
+document.getElementById('btn');
+
+let index = 0;
+
+// an array to alternate between red and blue so that red is displayed for delete activity status
+const colors = ['red', '#3944bc'];
+
+// created a function so that button color changes on click
+btn.addEventListener('click', function onClick() {
+  btn.style.backgroundColor = colors[index];
+  btn.style.color = 'white';
+
+  index = index >= colors.length - 1 ? 0 : index + 1;
+});
 
 
+// Event listener for range slider
 document.addEventListener("DOMContentLoaded", function() {
   var slider = document.getElementById('myRange');
   var output = document.getElementById('length');
@@ -151,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 var taskList=[];
 // created function called taskList that has all the inputparameters to create task object
+// Function to add a task to the taskList array
 function addTask(name, dateOfRun, timeOfDay, 
 description, category, terrain, exertion, distance, hours, minutes, 
   distanceMetric){
