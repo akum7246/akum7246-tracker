@@ -91,6 +91,7 @@ runner looking to improve your performance, our app has everything you need to s
       </select>
       
     </div>
+    <br>
 <p id="terrain">Type of Terrain</p>
 <BR>
     <div class="form-row2" >
@@ -134,15 +135,17 @@ hours and minutes which I initially did not consider -->
     <p id="duration">Duration</p>
     <div class="form-row">
         
-         <label for ="runHours" id="hrs">Hr</label>
-         <input type="number" name="runHours" id="runHours" required="true" min="0"/> : 
+         <label for ="runHours" id="hrs" >Hr</label>
+         <input type="number" name="runHours" id="runHours" required="true" min="0" placeholder="00"/> <p id="timeColon">:</p> 
          
-         <input type="number" name="runMinutes" id="runMinutes" required="true" min="0" max="59" /> 
+         <input type="number" name="runMinutes" id="runMinutes" required="true" min="0" max="59" placeholder="00" /> 
          <label for ="runMinutes" id="mins">Min</label>
     </div>
     
     
      </fieldset>
+     
+     <br>
      
     <div class="form-row"><input type="submit" id="submit" value="Enter Your Run"/>
     </div>

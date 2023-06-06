@@ -35,8 +35,8 @@ legend{
   
   
   
-  padding: .5em;
-  line-height: 1.7;
+  padding-left:0.5em;
+  
   display: grid;
   grid-template-columns: 0.8em auto;
   gap: 0.5em;
@@ -45,27 +45,43 @@ legend{
 #runHours{
      padding: 0.5em;
       width: 135px;
+      height: 42px;
   flex-grow: 0;
+  font-size: 20px;
+  text-align: center;
 }
 
 #runMinutes{
      padding: 0.5em;
       width: 135px;
+      height: 42px;
   flex-grow: 0;
+  font-size: 20px;
+  text-align: center;
 }
 #hrs{
    text-align: right;
    padding-right: 10px; 
+   padding-top: 6px;
    line-height: 30px;
    font-size: 17px;
-   
 }
 
 #mins{
    text-align: left;
-   padding-left: 10px; 
+   padding-left: 10px;
+   padding-top: 6px; 
    line-height: 30px;
    font-size:17px;
+}
+#timeColon{
+    line-height: 35px;
+    font-size:25px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+input[type="range"] {
+  width:300x;
 }
 
 
@@ -92,6 +108,10 @@ legend{
       padding: .5em;
   flex-grow: 1;
   
+text-align: left;
+
+
+  
   }
   #runDistance{
       
@@ -99,7 +119,9 @@ legend{
       width: 15px;
   flex-grow: 1;
   }
-  
+  #runDescription:focus{
+      border: 2px solid blue; 
+  }
   
   #runDate{
       padding: 0.5em;
@@ -170,6 +192,7 @@ header > h1 {
    width: 100px; 
    padding-left: 1em;
    font-size: 17px;
+   padding-top: 7px;
 }
 #difficultyLevel{
     font-size: 12px;
@@ -226,7 +249,7 @@ form {
 
 
 #terrain{
-      padding: .5em;
+      padding-left: 0.5em;
   flex-grow: 1;
 }
 
@@ -237,19 +260,41 @@ form {
     width:140px;
   }
   
-  td, th {
+  td{
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
   
 }
+
+th{
+    border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+   font-size: 18px;
+   background: #3944bc;
+   color: #FFFFFF
+    
+}
+
+#delIcon{
+    font-size: 25px;
+    text-align: center;
+    line-height: 25px;
+
+}
+#deleteRow{
+    background: #F94449;
+}
 table {
     margin-left:1.5em;
     }
 
-tr:nth-child(even) {
+tr:nth-child(odd) {
   background-color: #dddddd;
 }
+
+
 
 .delButton {
   display: flex;
@@ -267,4 +312,3 @@ tr:nth-child(even) {
   :focus {
     outline: none;
   }
-  

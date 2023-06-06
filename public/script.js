@@ -21,50 +21,138 @@ form.addEventListener('submit', function(event){
         
 
 })
+
+// dynamically sets max date value to present day
+runDate.max = new Date().toISOString().split("T")[0];
+
+// Function to format date as dd/mm/yyyy
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+
 // added task object as input parameter for function as it has all the
 //  associated values entered in the form
 
-// Create a new list item with task details and append it to the tasklistElem
-function displayRun(task){
+// // Created a new list item with task details and append it to the tasklistElem
+// function displayRun(task){
 
-    // created new element and CHANGE HTML CONTENT
-  let item=document.createElement('li');
-  item.setAttribute('data-id', task.id);
-  item.innerHTML=`<table><tr> 
-    <th>Run Title</th>
-    <th>Date of Run</th>
-    <th>Your Average Pace</th>
-    <th>Run Terrain</th>
-    <th>Run Duration</th>
-  </tr> <tr><td><strong> ${task.name}</strong></td>   <td>${task.dateOfRun}</td>
-   <td> ${task.avgPace}</td>  <td>${task.terrain}</td>  <td>${task.hours} Hours
-    ${task.minutes} Minutes</td>  </tr>  </table>` ; 
+//     // created new element and CHANGE HTML CONTENT
+//   let item=document.createElement('li');
+//   item.setAttribute('data-id', task.id);
+//   item.innerHTML=`<table><tr> 
+//     <th>Run Title</th>
+//     <th>Date of Run</th>
+//     <th>Your Average Pace</th>
+//     <th>Run Terrain</th>
+//     <th>Run Duration</th>
+//   </tr> <tr><td><strong> ${task.name}</strong></td>   <td>${task.dateOfRun}</td>
+//    <td> ${task.avgPace}</td>  <td>${task.terrain}</td>  <td>${task.hours} Hours
+//     ${task.minutes} Minutes</td>  </tr>  </table>` ; 
 
-//   appended list item to webpage so that it is displayed
-tasklistElem.appendChild(item)
-form.reset();
+// //   appended list item to webpage so that it is displayed
+// tasklistElem.appendChild(item)
+// form.reset();
 
  
-// implemented code within function to generate a delete button for each item added and append it to the item
-let delButton=document.createElement('button');
-let delButtonText=document.createTextNode("🗑️");
+// // implemented code within function to generate a delete button for each item added and append it to the item
+// let delButton=document.createElement('button');
+// let delButtonText=document.createTextNode("🗑️");
  
-delButton.appendChild(delButtonText);
-item.appendChild(delButton);
+// delButton.appendChild(delButtonText);
+// item.appendChild(delButton);
 
 
-// added click event listener inside function to add clickability to button and to remove the item from the taskList
-delButton.addEventListener('click', function(event){
-item.remove();
-taskList.forEach(function(taskArrayElement, taskArrayIndex){
-   if(taskArrayElement.id==item.getAttribute('data-id')){
-    taskList.splice(taskArrayIndex, 1)
-   }
-})
-console.log(taskList);
-})
+// // added click event listener inside function to add clickability to button and to remove the item from the taskList
+// delButton.addEventListener('click', function(event){
+// item.remove();
+// taskList.forEach(function(taskArrayElement, taskArrayIndex){
+//    if(taskArrayElement.id==item.getAttribute('data-id')){
+//     taskList.splice(taskArrayIndex, 1)
+//    }
+// })
+// console.log(taskList);
+// })
+// }
+// THE ABOVE FUNCTION WAS NOT UEFUL AS IT GENERATED A NEW TABLE HEADING WITH EACH
+// TABLE ROW GENERATED, THIS WAS UNINTUITIVE AND THEREFORE REQUIRED MAJOR CHANGES
+
+
+// this new function creates singular table heading with subsequent table rows 
+// that display the form entry data
+
+function displayRun(task) {
+  let table = tasklistElem.querySelector('table');
+
+  // Check if table exists, if not create a new table
+  if (!table) {
+    table = document.createElement('table');
+    table.innerHTML = `
+      <tr>
+        <th>Run Title</th>
+        <th>Run Date</th>
+        <th>Time</th>
+        <th>Description</th>
+        <th>Run Type</th>
+        <th>Run Terrain</th>
+        <th>Exertion</th>
+        <th>Your Average Pace</th>
+        <th>Run Distance</th>
+        <th>Run Duration</th>
+        
+        
+        
+        
+        
+        <th id="deleteRow">Delete</th>
+      </tr>`;
+    tasklistElem.appendChild(table);
+  }
+
+  // Create new table row
+  let row = document.createElement('tr');
+  row.setAttribute('data-id', task.id);
+  row.innerHTML = `
+    <td><strong>${task.name}</strong></td>
+    <td>${formatDate(task.dateOfRun)}</td>
+    <td>${task.timeOfDay}</td>
+    <td>${task.description}</td>
+    <td>${task.category}</td>
+    <td>${task.terrain}</td>
+    <td>Difficulty Level:${task.exertion}</td>
+    <td>${task.avgPace}</td>
+    <td>${task.distance} Km</td>
+    <td>${task.hours} Hours ${task.minutes} Minutes</td>
+    
+    
+    
+    
+    
+    
+    <td id="delIcon">
+      <button class="delete-button" data-id="${task.id}">🗑️</button>
+    </td>`;
+
+  // Appending the row to the table
+  table.appendChild(row);
+  form.reset();
+
+  // Implement code within the function to generate a delete button for each item added and append it to the item
+
+  // Added a class "delete-button" to the delete button for styling and event handling
+  let deleteButton = row.querySelector('.delete-button');
+
+  // Added click event listener to the delete button to remove the row from the display and the taskList array
+  deleteButton.addEventListener('click', function(event) {
+    row.remove();
+    taskList = taskList.filter((taskItem) => taskItem.id != task.id);
+    console.log(taskList);
+  });
 }
-
 
 
 
@@ -120,18 +208,19 @@ btn.addEventListener('click', () => {
 });
 
 // Event listener for form submission to toggle button text
-document.forms['taskform'].addEventListener('submit', function (event) {
+document.forms['taskform'].addEventListener('submit', function(event) {
     var elem = document.getElementById("btn");
-            // Do something with the form's data here
-            this.style['display'] = 'none';
-            event.preventDefault();
-            elem.value="Add New Activity";
-            
-            // added if/else statement that connects to submit button so that
-            // the "discard activity" switches to "add activity" button when form is submitted
-             if (elem.value=="Add New Run") elem.value = "Discard Activity";
-    else elem.value = "Add New Run";
-        });
+    // Do something with the form's data here
+    this.style['display'] = 'none';
+    event.preventDefault();
+    elem.value = "Add New Run";
+
+    // Toggle button color when the form is submitted
+    btn.style.backgroundColor = colors[index];
+    btn.style.color = 'white';
+
+    index = index >= colors.length - 1 ? 0 : index + 1;
+});
 
 
 
@@ -183,12 +272,13 @@ description, category, terrain, exertion, distance, hours, minutes,
       let totalPace = calPace (hours,minutes, distance);
       
       
+      
 let task = {
     name,
     // included code to remove milliseconds and time from date displayed
     // code snippet from : https://stackoverflow.com/questions/25159330/how-to-
     // convert-an-iso-date-to-the-date-format-yyyy-mm-dd
-    dateOfRun:new Date ().toISOString().substring(0, 10),
+    dateOfRun,
     timeOfDay,
     description,
     category,
@@ -204,12 +294,13 @@ let task = {
     image:"longDistance.jpg",
     avgPace: totalPace,
 }
+
 taskList.push(task);
 displayRun(task)
 }
 
 
-addTask("Park run", "21/5/23", "morning", "It was a Pleasant run", "Endurance", "Road", "difficult", 10, 2, 30);
+addTask("Park run", "2023-5-21", "Morning", "It was a Pleasant run", "Endurance", "Road", "3", 10, 2, 30);
 
 
 console.log(taskList);// javascript
