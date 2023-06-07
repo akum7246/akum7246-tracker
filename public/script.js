@@ -35,6 +35,88 @@ function formatDate(dateString) {
 }
 
 
+// I TRIED TO IMPLEMENT A TOOLTIP WHOSE CURSOR INTERACTIVITY WOULD CHANGE BASED 
+// ON SCREEN SIZE (TOOLTIP THAT IS DISPLAYS ON HOVER FOR SCREENS LARGER THAN 1000PX AND 
+//   SUCH THAT IT IS DISPLAYED ON CLICK FOR SCREENS LESS THAN 1000PX)
+
+// I tried to implement this feature as a mobile version would utilize a hover functionality
+
+// I tried to create this function where I've added two functions showTooltip() and hideTooltip() 
+// to handle the display of the tooltip. The event listener for mouseover checks the maximum
+//  width condition and shows the tooltip only if the width is less than 1000px. Similarly, the 
+//  event listener for click also checks the maximum width condition before showing the tooltip.
+
+// However, this function did not end up working because i kept getting a classList error when i ran this 
+// on a local server
+
+// document.addEventListener("DOMContentLoaded", function() {
+//   const tooltipContainer = document.querySelector(".tooltip");
+//   const isSmallScreen = window.innerWidth < 1000;
+  
+//   // Function to show the tooltip
+//   function showTooltip() {
+//     const tooltipText = tooltipContainer.querySelector(".tooltip-text");
+//     tooltipText.style.display = "block";
+//   }
+
+//   // Function to hide the tooltip
+//   function hideTooltip() {
+//     const tooltipText = tooltipContainer.querySelector(".tooltip-text");
+//     tooltipText.style.display = "none";
+//   }
+
+//   // Function to handle tooltip display based on screen size
+//   function handleTooltipDisplay() {
+//     if (isSmallScreen) {
+//       // For screens less than 1000px, show tooltip on click
+//       tooltipContainer.addEventListener("click", showTooltip);
+//     } else {
+//       // For screens larger than 1000px, show tooltip on hover
+//       tooltipContainer.addEventListener("mouseenter", showTooltip);
+//       tooltipContainer.addEventListener("mouseleave", hideTooltip);
+//     }
+//   }
+
+//   // Initial setup for tooltip display based on screen size
+//   handleTooltipDisplay();
+
+//   // Add event listener to handle tooltip display on window resize
+//   window.addEventListener("resize", function() {
+//     const newScreenWidth = window.innerWidth;
+//     const newScreenIsSmall = newScreenWidth < 1000;
+
+//     if (isSmallScreen !== newScreenIsSmall) {
+//       isSmallScreen = newScreenIsSmall;
+//       handleTooltipDisplay();
+//     }
+//   });
+// });
+
+
+// As a result, i decided to implement a simpler function by just having the hover functionality
+// without trying to change interactivity based on screen sizes. 
+document.addEventListener("DOMContentLoaded", function() {
+  const tooltipContainer = document.querySelector(".tooltip");
+  const tooltipText = tooltipContainer.querySelector(".tooltip-text");
+
+  // Function to show the tooltip
+  function showTooltip() {
+    tooltipText.style.display = "block";
+  }
+
+  // Function to hide the tooltip
+  function hideTooltip() {
+    tooltipText.style.display = "none";
+  }
+
+  // Show tooltip on hover
+  tooltipContainer.addEventListener("mouseover", showTooltip);
+  tooltipContainer.addEventListener("mouseout", hideTooltip);
+});
+
+
+
+
 // added task object as input parameter for function as it has all the
 //  associated values entered in the form
 
@@ -100,7 +182,7 @@ function displayRun(task) {
         <th>Run Type</th>
         <th>Run Terrain</th>
         <th>Exertion</th>
-        <th>Your Average Pace</th>
+        <th>Average Pace</th>
         <th>Run Distance</th>
         <th>Run Duration</th>
         
@@ -153,10 +235,6 @@ function displayRun(task) {
     console.log(taskList);
   });
 }
-
-
-
-
 
 
 
@@ -230,7 +308,7 @@ document.forms['taskform'].addEventListener('submit', function(event) {
 function change(btn)
 {
     var elem = document.getElementById("btn");
-    if (elem.value=="Add New Run") elem.value = "Discard Activity";
+    if (elem.value=="Add New Run") elem.value ="Discard Activity";
     else elem.value = "Add New Run";
     
    

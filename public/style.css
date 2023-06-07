@@ -21,8 +21,15 @@ legend{
   display: inline-block;
 }
 #runType{
-    padding: .5em;
+  
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  padding-left: 0.5em;
+
   flex-grow: 1;
+  width: 395px;
+      
+ 
 }
 #duration{
     padding: .5em;
@@ -74,15 +81,15 @@ legend{
    line-height: 30px;
    font-size:17px;
 }
+
+
 #timeColon{
     line-height: 35px;
     font-size:25px;
     padding-left: 5px;
     padding-right: 5px;
 }
-input[type="range"] {
-  width:300x;
-}
+
 
 
 #submit{
@@ -105,8 +112,9 @@ input[type="range"] {
   
   textarea{
       height:150px;
-      padding: .5em;
+      padding: .3em;
   flex-grow: 1;
+  font-size: 15px;
   
 text-align: left;
 
@@ -115,10 +123,15 @@ text-align: left;
   }
   #runDistance{
       
-      padding: .5em;
-      width: 15px;
-  flex-grow: 1;
-  }
+      
+    
+      
+    padding: .3em;
+      line-height: 30px;
+      font-size: 17px;
+
+}
+  
   #runDescription:focus{
       border: 2px solid blue; 
   }
@@ -151,7 +164,7 @@ header > h1 {
 
 #btn {
  background-color: #3944bc;
-  border-radius: 12px;
+  border-radius: 8px;
   color: 	#FFFFFF;
   cursor: pointer;
   font-weight: bold;
@@ -190,7 +203,7 @@ header > h1 {
 
 .km {
    width: 100px; 
-   padding-left: 1em;
+   padding-left: 0.5em;
    font-size: 17px;
    padding-top: 7px;
 }
@@ -281,6 +294,7 @@ th{
     font-size: 25px;
     text-align: center;
     line-height: 25px;
+    
 
 }
 #deleteRow{
@@ -312,3 +326,281 @@ tr:nth-child(odd) {
   :focus {
     outline: none;
   }
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    bottom: 3px;
+    right: 15px;
+  }
+  
+  .tooltip .tooltip-text {
+    font-size: 12px;
+    visibility: hidden;
+    width: 200px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid #000;
+    
+  }
+  
+  .tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #000 transparent transparent transparent;
+    
+    
+  }
+  
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* @media (min-width: 1000px) {
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+  } */
+
+
+  
+/* Media Queries */
+
+@media only screen and (max-width: 1000px) {
+  
+  #runHours {
+    position: absolute;
+    left: 60px;
+    top: 1850px;
+    width: 100px;
+  }
+
+  #runMinutes {
+    position: absolute;
+    left: 170px;
+    top: 1850px;
+    width: 100px;
+  }
+
+  #hrs{
+    position: absolute;
+    left: -240px;
+    top: 1850px;
+    font-size:17px;
+ }
+
+  #mins{
+    position: absolute;
+    left:270px;
+    top: 1850px;
+    font-size:17px;
+ }
+ #timeColon{
+  position: absolute;
+  left:158px;
+  top: 1850px;
+  font-size:17px;
+}
+  .form-row2 {
+    grid-template-columns: auto;
+  }
+  .form-row2 {
+  
+  
+  
+    padding-left:0.5em;
+    
+    display: grid;
+    grid-template-columns: 0.8em auto;
+    gap: 0.5em;
+  }
+  
+  .tooltip.active .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  
+  
+  
+  
+  #terrain {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  #runType{
+    text-align: left;
+    
+    width: 100%;
+    
+    
+    max-width: 300px;
+flex-grow: 0;
+text-align: left;
+   padding-top: 1em;
+   padding-bottom: 1em;
+   padding-left: 0.5em;
+}
+
+  #runDistance{   
+      padding: 0.3em;
+      line-height: 30px;
+      font-size: 17px;
+
+}
+
+.km {
+  
+  padding-left: 14em;
+  font-size: 17px;
+ padding-bottom: 1em;
+ margin-top: -45px;
+  
+}
+
+  #runDate{
+    padding: 0.5em;
+    width: 100%;
+    max-width: 300px;
+flex-grow: 0;
+font-size: 15px;
+}
+  #runName{
+    padding: 0.5em;
+    width: 100%;
+    max-width: 300px;
+flex-grow: 0;
+  }
+
+  #timeOfDay{
+    padding: 0.5em;
+    width: 100%;
+    max-width: 300px;
+    height:45px;
+flex-grow: 0;
+  }
+  #dayTime{
+    text-align: left;
+    padding-top: 20px;
+    
+ }
+
+ 
+
+ textarea{
+  height:150px;
+  padding: .3em;
+flex-grow: 0;
+width: 100%;
+max-width: 300px;
+text-align: left;
+font-size: 15px;
+
+
+}
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* to prevent labels from wrapping */
+  .form-row > label {
+    margin-bottom: 0.5em;
+   width: 300px;
+    
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    bottom: 35px;
+    left: 150px;
+  }
+  
+  input[type="range"] {
+    width:300px;
+  }
+
+  #difficultyLevel{
+    font-size: 14px;
+    font-style: str;
+    font-weight: bold;
+    padding-left: 80px;
+    
+}
+
+  #submit {
+   
+    padding: 0.5em;
+    width: 95%;
+    position: relative;
+  top: 50px;
+  }
+  
+  #intro {
+      
+       padding: 1.7em;  
+       font-size: 19px;
+    }
+  
+  header > h1 {
+    font-size: 24px;
+  }
+  
+  .image1 {
+    margin: 20px auto;
+    width: 200px;
+  }
+  h2 {
+    padding-top: 1.5em;
+    padding-left: 1em;
+    font-size: 27px;
+}
+  table {
+    margin: 0 auto;
+    padding: 2em;
+  }
+ #btn {
+  background-color: #3944bc;
+   border-radius: 25px;
+   color: 	#FFFFFF;
+   cursor: pointer;
+   font-weight: bold;
+   padding: 10px 15px;
+   text-align: center;
+   line-height: 10px;
+   transition: 200ms;
+    height: 50px;
+   width: 170px;
+   box-sizing: border-box;
+   border: 0;
+   font-size: 19px;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+   display: inline-block;
+   margin-left: 1.6em;
+   box-shadow: 0 3px 8px 0 rgba(0,0,0,.15);
+ }
+ 
+}
