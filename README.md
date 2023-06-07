@@ -41,18 +41,29 @@ as this feature tends to glitch and not work as intended when an adBlocker is en
 >Mobile : 375 x 812 px (Apple iPhone X)
 
 
-## Mockup 
+## Desktop Mockup 
 ![Desktop](/image/mckup1.png)
 
-## Prototype
+## Desktop Prototype
 ![Desktop](/image/prototyp1.png)
+
+## Mobile Mockup 
+![Mobile](/image/mckup2.png)
+
+## Mobile Prototype
+![Mobile](/image/prototyp.png)
 
 
 ## General Improvements
 >Improved input field by using a contrasting colors in order to improve the visibility of the fields.
 >
 >Implemented a discard activity button instead of a simplistic form reset button. This button is made more obvious through a contrasting color and bigger dimensions. This button is triggered once the user clicks the "add activity" button to create a new entry. Clicking this button resets the form and also hides the input form simultaneously.
-
+>
+>Utilized drop shadow for buttons in the mobile screen size to convery clickability.
+>
+>In the mobile screen size, utilized top aligned labels to improve comprehension. Having
+multiple side-aligned labels would require user to scan information in
+a z-pattern which would increase comprehension time. Therefore, using top aligned labels are ultimately more intuitive and user friendly.
 
 
 ## Lessons Learnt
